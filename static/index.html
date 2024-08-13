@@ -1,25 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ascii-art-web</title>
+    <title>ASCII Art Generator</title>
 </head>
-
 <body>
-    <form action="form.html">
-        <p for="Text">Enter a random Text:</p>
-        <input type="text"><br>
-        <p>Please select your favorite Web language:</p>
-        <input type="radio" id="Standard" name="checker">
-        <label for="Standard">Standard</label><br>
-        <input type="radio" id="Shadow" name="checker">
-        <label for="Shadow">Shadow</label><br>
-        <input type="radio" id="Thinkertoy" name="checker">
-        <label for="Thinkertoy">Thinkertoy</label><br>
-        <button type="submit">Submit</button>
+    <h1>ASCII Art Generator</h1>
+    <form action="/ascii-art" method="post">
+        <textarea name="text" rows="4" cols="50" required></textarea><br>
+        <input type="radio" name="banner" value="standard" checked> Standard
+        <input type="radio" name="banner" value="shadow"> Shadow
+        <input type="radio" name="banner" value="thinkertoy"> Thinkertoy<br>
+        <input type="submit" value="Generate ASCII Art">
     </form>
+    <div id="result"></div>
 </body>
-
 </html>
