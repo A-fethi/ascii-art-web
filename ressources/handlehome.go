@@ -1,7 +1,6 @@
 package ascii
 
 import (
-	"fmt"
 	"net/http"
 	"text/template"
 )
@@ -9,11 +8,22 @@ import (
 func HandleHome(w http.ResponseWriter, r *http.Request) {
 	tmpl, err := template.ParseFiles("static/index.html")
 	if err != nil {
-		http.Error(w, "Template not found", http.StatusNotFound)
+		http.Error(w, "Error 404: Template not found", http.StatusNotFound)
 		return
 	}
+
+	if r.URL.Query().Get("error") == "true" {
+		http.Error(w, "Error 500: Internal server error!", http.StatusInternalServerError)
+		return
+	}
+
+	if r.Method != http.MethodGet {
+		http.Error(w, "Error 400: Bad Request!", http.StatusBadRequest)
+		return
+	}
+
 	if r.URL.Path != "/" {
-		fmt.Fprint(w, "Page Not Found ", http.StatusNotFound)
+		http.Error(w, "Error 404: Page Not Found!", http.StatusNotFound)
 		return
 	}
 

@@ -9,11 +9,12 @@ import (
 func HandleAsciiArt(w http.ResponseWriter, r *http.Request) {
 	tmpl, err := template.ParseFiles("static/index.html")
 	if err != nil {
-		http.Error(w, "Bad Request", http.StatusBadRequest)
+		http.Error(w, "Error 404: Template not found", http.StatusNotFound)
 		return
 	}
+
 	if r.Method != http.MethodPost {
-		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		http.Error(w, "Error 400: Bad request!", http.StatusBadRequest)
 		return
 	}
 
@@ -21,12 +22,12 @@ func HandleAsciiArt(w http.ResponseWriter, r *http.Request) {
 	banner := r.FormValue("banner")
 
 	if len(text) > 1000 {
-		http.Error(w, "Input length must be less than 1000", http.StatusForbidden)
+		http.Error(w, "Error 403: Input length must be less than 1000", http.StatusForbidden)
 		return
 	}
 
 	if banner != "standard" && banner != "shadow" && banner != "thinkertoy" {
-		http.Error(w, "Banner not found", http.StatusNotFound)
+		http.Error(w, "Error 404: Banner not found!", http.StatusNotFound)
 		return
 	}
 
