@@ -12,6 +12,8 @@ func HandleHome(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	q := r.URL.Query().Get("error")
+	println(q)
 	if r.URL.Query().Get("error") == "true" {
 		http.Error(w, "Error 500: Internal server error!", http.StatusInternalServerError)
 		return

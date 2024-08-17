@@ -35,7 +35,5 @@ func HandleAsciiArt(w http.ResponseWriter, r *http.Request) {
 	slice := strings.Split(text, "\n")
 	asciiArt := GenerateAsciiArt(slice, banner)
 
-	// w.Header().Set("Content-Type", "text/plain")
-	// w.Write([]byte(asciiArt))
 	tmpl.Execute(w, asciiArt)
 }
