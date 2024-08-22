@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="/assets/public/logo.png">
+    <title>Ascii-art-web</title>
+</head>
+
+<body>
+    <div class="navigation-bar">
+        <div id="navigation-container">
+            <a href="https://zone01oujda.ma/" target="_blank"><img src="/assets/public/logo.png" alt="logo"></a>
+            <ul>
+                <li><a class="links" href="https://github.com/A-fethi/ascii-art-web/tree/main/stylize" target="_blank">Github-Repo</a>
+                </li>
+                <li><a class="links" href="#">Authors</a></li>
+                <li><a class="links" href="#">About</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <div class="title">
+            <h1>ASCII Art Generator</h1>
+            <p>Enter your Text:</p>
+        </div>
+        <div class="form">
+            <form action="/ascii-art" method="post">
+                <textarea name="text" maxlength="1000" required></textarea>
+                <p>Please select your favorite <span>Ascii-art</span> File:</p>
+                <div class="radio-group">
+                    <label class="radio">
+                        <input type="radio" id="standard" value="standard" name="banner" checked>
+                        standard
+                    </label>
+                    <label class="radio">
+                        <input type="radio" id="standard" value="shadow" name="banner">
+                        shadow
+
+                    </label>
+                    <label class="radio">
+                        <input type="radio" id="standard" value="thinkertoy" name="banner">
+                        thinkertoy
+                    </label><br><br>
+                </div>
+                <button type="submit">Submit</button>
+                <p>Your text will appear below</p>
+            </form>
+        </div>
+    </div>
+    <!-- <div>
+        <pre>{{.}}</pre>
+    </div> -->
+</body>
+
+</html>
