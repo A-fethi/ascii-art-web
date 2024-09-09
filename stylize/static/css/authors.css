@@ -117,6 +117,7 @@ html {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    margin-bottom: 20px;
 }
 
 img {
@@ -124,7 +125,7 @@ img {
     border-radius: 20px;
 }
 
-.afethi, .jamal, .bilal {
+.afethi, .jamal /*.bilal*/ {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -141,4 +142,32 @@ a img {
     display: flex;
     flex-direction: row;
     gap: 10px;
+}
+
+.go-back {
+    display: flex;
+    justify-content: center;
+}
+
+.go-back a {
+    padding: 5px 10px;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: var(--grey90);
+    border: 2px solid #000;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px var(--blue75);
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+}
+  
+.go-back a:hover {
+    background-color: #fff;
+    color: var(--grey90);
+    border: 2px solid var(--grey90);
+    box-shadow: 3px 3px 3px var(--purple10);
 }
