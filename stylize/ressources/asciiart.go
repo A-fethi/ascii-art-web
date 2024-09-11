@@ -31,9 +31,7 @@ func GenerateAsciiArt(input []string, banner string) string {
 		}
 	}
 
-	if len(input) == 0 {
-		return ""
-	}
+	
 
 	var result string
 

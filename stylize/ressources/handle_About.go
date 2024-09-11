@@ -1,7 +1,21 @@
 package ascii
 
-import "net/http"
+import (
+	"html/template"
+	"net/http"
+)
 
 func HandleAbout(w http.ResponseWriter, r *http.Request) {
-	http.ServeFile(w, r, "templates/about.html")
+	tmpl, err := template.ParseFiles("templates/about.html")
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		http.ServeFile(w, r, "templates/500.html")
+		return
+	}
+	err = tmpl.Execute(w, nil)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		http.ServeFile(w, r, "templates/500.html")
+		return
+	}
 }
