@@ -6,13 +6,8 @@ import (
 	"strings"
 )
 
+// HandleAsciiArt processes an HTTP request to generate and render ASCII art based on user input.
 func HandleAsciiArt(w http.ResponseWriter, r *http.Request) {
-	// files := []string{
-	// 	"templates/index.html",
-	// 	"templates/400.html",
-	// 	"templates/404.html",
-	// 	"templates/500.html",
-	// }
 	tmpl, err := template.ParseFiles("templates/index.html")
 	if err != nil {
 		HandleError(w, http.StatusInternalServerError)

@@ -5,6 +5,7 @@ import (
 	"net/http"
 )
 
+// HandleHome serves the home page if the request is valid, or handles errors for invalid requests.
 func HandleHome(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
 		HandleError(w, http.StatusNotFound)

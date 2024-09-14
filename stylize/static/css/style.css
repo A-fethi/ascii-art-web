@@ -232,9 +232,11 @@ input[type=radio]:checked + label {
     }
 }
 
-@media screen and (max-width: 1440px) and (min-width: 1281px){
+
+
+@media screen and (max-width: 2559px) and (min-width: 1441px){
     .title {
-        font-size: 13px;
+        font-size: 16px;
     }
 
     #navigation-container {
@@ -243,17 +245,21 @@ input[type=radio]:checked + label {
     }
     
     #navigation-container ul {
-        font-size: 13px;
+        font-size: 16px;
         gap: 2rem;
         margin-right: 10px;
     }
 
     label, textarea, .form p, .output, button {
-        font-size: 13px;
+        font-size: 14px;
+    }
+
+    .output {
+        margin-top: 20px;
     }
 }
 
-@media screen and (min-width: 2560px){
+@media screen and (min-width: 2560px) {
     .title {
         font-size: 25px;
     }

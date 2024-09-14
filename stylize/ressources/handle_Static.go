@@ -6,12 +6,14 @@ import (
 	"path/filepath"
 )
 
+// fileExists checks if a file exists and returns an error if it does not.
 func fileExists(filename string) error {
 	_, err := os.Stat(filename)
 
 	return err
 }
 
+// HandleStatic serves static files if they exist and have allowed extensions, or returns a 404 error.
 func HandleStatic(w http.ResponseWriter, r *http.Request) {
 	path := r.URL.Path
 
@@ -36,7 +38,7 @@ func HandleStatic(w http.ResponseWriter, r *http.Request) {
 	if err == nil {
 		http.ServeFile(w, r, fullPath)
 	} else {
-		HandleError(w, http.StatusBadRequest)
+		HandleError(w, http.StatusNotFound)
 		return
 	}
 }

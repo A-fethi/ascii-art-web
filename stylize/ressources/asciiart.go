@@ -5,6 +5,7 @@ import (
 	"strings"
 )
 
+// GenerateAsciiArt creates ASCII art from the given input and banner file.
 func GenerateAsciiArt(input []string, banner string) string {
 	var slice [][]string
 
@@ -31,8 +32,6 @@ func GenerateAsciiArt(input []string, banner string) string {
 		}
 	}
 
-	
-
 	var result string
 
 	for _, value := range input {
@@ -43,20 +42,12 @@ func GenerateAsciiArt(input []string, banner string) string {
 			result += asciiLine
 		}
 	}
-
 	return result
 }
 
+// printLine generates a line of ASCII art for a given input line using the provided slice.
 func printLine(inputLine string, slice [][]string) string {
 	var result string
-
-	// checks if the char is not printable
-	for _, char := range inputLine {
-		if char < 32 || char > 126 {
-			return "Error: Characters must be ASCII printable.\nFor reference on what constitutes printable characters, please consult this image: 'https://upload.wikimedia.org/wikipedia/commons/1/1b/ASCII-Table-wide.svg'.\nPrintable characters are those with decimal values ranging from 32 to 126."
-
-		}
-	}
 
 	for j := 0; j < 8; j++ {
 		for _, char := range inputLine {
