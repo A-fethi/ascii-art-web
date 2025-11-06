@@ -7,9 +7,14 @@ import (
 	ascii "ascii/ressources"
 )
 
+// main sets up HTTP route handlers and starts the web server on port 8080.
 func main() {
+	http.HandleFunc("/static/", ascii.HandleStatic)
 	http.HandleFunc("/", ascii.HandleHome)
 	http.HandleFunc("/ascii-art", ascii.HandleAsciiArt)
-	log.Println("Server starting on http://localhost:8080")
+	http.HandleFunc("/authors", ascii.HandleAuthors)
+	http.HandleFunc("/about", ascii.HandleAbout)
+
+	log.Println("Starting server on http://localhost:8080")
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
